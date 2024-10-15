@@ -5,42 +5,66 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Akshit Agarwal | Portfolio</title>
   <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Global Styles */
     body {
       font-family: Arial, sans-serif;
       background-color: #f4f4f9;
-      margin: 0;
-      padding: 0;
     }
+
     header {
       background-color: #333;
       color: white;
-      padding: 10px 0;
+      padding: 20px;
       text-align: center;
+      position: sticky; /* Makes the header sticky */
+      top: 0; /* Keeps it at the top of the viewport when scrolling */
+      z-index: 1000; /* Ensures it stays above other elements */
     }
+
     h1 {
       margin: 0;
+      font-size: 2.5em;
     }
+
     nav a {
       margin: 0 15px;
       color: white;
       text-decoration: none;
+      font-size: 1.2em;
     }
+
     section {
+      display: none; /* Hide all sections initially */
       margin: 20px;
       padding: 20px;
       background-color: #fff;
       border-radius: 5px;
     }
+
+    section.active {
+      display: block; /* Only the active section will be shown */
+    }
+
     h2 {
       color: #333;
     }
+
     ul {
       list-style-type: none;
       padding: 0;
     }
+
     ul li {
       padding: 5px 0;
     }
+
     footer {
       text-align: center;
       padding: 10px;
@@ -50,6 +74,41 @@
       bottom: 0;
       width: 100%;
     }
+
+    /* Add Some Hover Effects */
+    nav a:hover {
+      color: #00aaff;
+    }
+
+    /* About Me Section */
+    #about {
+      display: block; /* Show About section by default */
+    }
+
+    /* Button Styling for Smooth Transitions */
+    button {
+      background-color: #333;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 1em;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background-color: #00aaff;
+    }
+
+    section {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    section.active {
+      opacity: 1;
+    }
+
   </style>
 </head>
 <body>
@@ -57,11 +116,17 @@
 <header>
   <h1>Akshit Agarwal</h1>
   <nav>
-    <a href="#patents">Patents</a>
-    <a href="#publications">Publications</a>
-    <a href="#projects">Projects</a>
+    <a href="#" onclick="showSection('about')">About Me</a>
+    <a href="#" onclick="showSection('patents')">Patents</a>
+    <a href="#" onclick="showSection('publications')">Publications</a>
+    <a href="#" onclick="showSection('projects')">Projects</a>
   </nav>
 </header>
+
+<section id="about" class="active">
+  <h2>About Me</h2>
+  <p>Hi, I'm Akshit Agarwal, a Computer Science enthusiast with expertise in AI, Computer Vision, and Low-Light Enhancement for mobile devices. I’ve worked on several projects, including AI-based solutions for mobile cameras, and hold several patents for innovative technologies. Explore my patents, publications, and projects to know more!</p>
+</section>
 
 <section id="patents">
   <h2>Patents</h2>
@@ -83,14 +148,30 @@
 <section id="projects">
   <h2>Projects</h2>
   <ul>
-    <li><strong>Low-Light Enhancement</strong>: Developed low-light enhancement for low/mid-tier devices. [GitHub Repository](#)</li>
-    <li><strong>AI High Resolution</strong>: Developed AI-based demosaicing solution for Samsung S23. [GitHub Repository](#)</li>
+    <li><strong>Low-Light Enhancement</strong>: Developed low-light enhancement for low/mid-tier devices. <a href="#">More Details</a></li>
+    <li><strong>AI High Resolution</strong>: Developed AI-based demosaicing solution for Samsung S23. <a href="#">More Details</a></li>
   </ul>
 </section>
 
 <footer>
   <p>&copy; 2024 Akshit Agarwal. All Rights Reserved.</p>
 </footer>
+
+<!-- JavaScript for Section Navigation -->
+<script>
+  function showSection(sectionId) {
+    // Get all sections
+    const sections = document.querySelectorAll('section');
+    
+    // Hide all sections
+    sections.forEach(section => {
+      section.classList.remove('active');
+    });
+    
+    // Show the clicked section
+    document.getElementById(sectionId).classList.add('active');
+  }
+</script>
 
 </body>
 </html>
