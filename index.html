@@ -1,177 +1,246 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Akshit Agarwal | Portfolio</title>
-  <style>
-    /* Basic Reset */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Akshit Agarwal | Portfolio</title>
+    <style>
+        /* Reset and base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
 
-    /* Global Styles */
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f9;
-    }
+        /* Header styles */
+        header {
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
 
-    header {
-      background-color: #333;
-      color: white;
-      padding: 20px;
-      text-align: center;
-      position: sticky; /* Makes the header sticky */
-      top: 0; /* Keeps it at the top of the viewport when scrolling */
-      z-index: 1000; /* Ensures it stays above other elements */
-    }
+        nav {
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
 
-    h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
+        nav a {
+            color: #333;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s ease;
+        }
 
-    nav a {
-      margin: 0 15px;
-      color: white;
-      text-decoration: none;
-      font-size: 1.2em;
-    }
+        nav a:hover {
+            color: #007bff;
+        }
 
-    section {
-      display: none; /* Hide all sections initially */
-      margin: 20px;
-      padding: 20px;
-      background-color: #fff;
-      border-radius: 5px;
-    }
+        /* Section styles */
+        section {
+            padding: 80px 20px;
+            margin-top: 60px;
+        }
 
-    section.active {
-      display: block; /* Only the active section will be shown */
-    }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    h2 {
-      color: #333;
-    }
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
 
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
+        /* About section */
+        #about img {
+            width: 200px;
+            border-radius: 50%;
+            display: block;
+            margin: 0 auto 2rem;
+        }
 
-    ul li {
-      padding: 5px 0;
-    }
+        /* Experience section */
+        .experience-item {
+            margin-bottom: 2rem;
+        }
 
-    footer {
-      text-align: center;
-      padding: 10px;
-      background-color: #333;
-      color: white;
-      position: fixed;
-      bottom: 0;
-      width: 100%;
-    }
+        .experience-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
 
-    /* Add Some Hover Effects */
-    nav a:hover {
-      color: #00aaff;
-    }
+        /* Projects section */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
 
-    /* About Me Section */
-    #about {
-      display: block; /* Show About section by default */
-    }
+        .project-card {
+            background-color: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
 
-    /* Button Styling for Smooth Transitions */
-    button {
-      background-color: #333;
-      color: white;
-      border: none;
-      padding: 10px 20px;
-      cursor: pointer;
-      font-size: 1em;
-      margin-top: 10px;
-    }
+        .project-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
 
-    button:hover {
-      background-color: #00aaff;
-    }
+        .btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+            margin-top: 1rem;
+        }
 
-    section {
-      opacity: 0;
-      transition: opacity 0.5s ease;
-    }
+        .btn:hover {
+            background-color: #0056b3;
+        }
 
-    section.active {
-      opacity: 1;
-    }
+        /* Contact section */
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 500px;
+            margin: 0 auto;
+        }
 
-  </style>
+        form input,
+        form textarea {
+            margin-bottom: 1rem;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        form button {
+            padding: 0.5rem;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        form button:hover {
+            background-color: #0056b3;
+        }
+
+        /* Footer styles */
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1rem 0;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <nav>
+            <a href="#about" onclick="smoothScroll('#about'); return false;">About</a>
+            <a href="#patents" onclick="smoothScroll('#patents'); return false;">Patents</a>
+            <a href="#experience" onclick="smoothScroll('#experience'); return false;">Experience</a>
+            <a href="#projects" onclick="smoothScroll('#projects'); return false;">Projects</a>
+            <a href="#contact" onclick="smoothScroll('#contact'); return false;">Contact</a>
+        </nav>
+    </header>
 
-<header>
-  <h1>Akshit Agarwal</h1>
-  <nav>
-    <a href="#" onclick="showSection('about')">About Me</a>
-    <a href="#" onclick="showSection('patents')">Patents</a>
-    <a href="#" onclick="showSection('publications')">Publications</a>
-    <a href="#" onclick="showSection('projects')">Projects</a>
-  </nav>
-</header>
+    <section id="about">
+        <div class="container">
+            <img src="Akshit-Agarwal.jpg" alt="Akshit Agarwal">
+            <h2>About Me</h2>
+            <p>Hi, I'm Akshit Agarwal, a Computer Science enthusiast with expertise in AI, Computer Vision, and Low-Light Enhancement for mobile devices. I've worked on several projects, including AI-based solutions for mobile cameras, and hold several patents for innovative technologies.</p>
+        </div>
+    </section>
 
-<section id="about" class="active">
-  <h2>About Me</h2>
-  <p>Hi, I'm Akshit Agarwal, a Computer Science enthusiast with expertise in AI, Computer Vision, and Low-Light Enhancement for mobile devices. I’ve worked on several projects, including AI-based solutions for mobile cameras, and hold several patents for innovative technologies. Explore my patents, publications, and projects to know more!</p>
-</section>
+    <section id="patents">
+      <div class="container">
+          <h2>Patents</h2>
+          <ul>
+              <li>Patent 1: Low-Light Enhancement System, Patent Number, 2023</li>
+              <li>Patent 2: Motion Dramatization, Patent Number, 2022</li>
+              <li>Patent 3: AI-based Demosaicing, Patent Number, 2021</li>
+          </ul>
+      </div>
+  </section>
 
-<section id="patents">
-  <h2>Patents</h2>
-  <ul>
-    <li>Patent 1: Low-Light Enhancement System, Patent Number, 2023</li>
-    <li>Patent 2: Motion Dramatization, Patent Number, 2022</li>
-    <li>Patent 3: AI-based Demosaicing, Patent Number, 2021</li>
-  </ul>
-</section>
+    <section id="experience">
+        <div class="container">
+            <h2>Experience</h2>
+            <div class="experience-item">
+                <h3>AI Research Engineer - Samsung Research</h3>
+                <p>2020 - Present</p>
+                <ul>
+                    <li>Developed low-light enhancement solutions for mobile devices</li>
+                    <li>Led AI-based demosaicing project for Samsung S23</li>
+                    <li>Contributed to multiple patents in mobile imaging technology</li>
+                </ul>
+            </div>
+            <!-- Add more experience items as needed -->
+        </div>
+    </section>
 
-<section id="publications">
-  <h2>Publications</h2>
-  <ul>
-    <li>"AI-Powered Low-Light Solutions for Mobile Devices", Journal of Imaging Science, 2023</li>
-    <li>"Real-Time Multi-Camera Video Enhancement", IEEE Conference, 2022</li>
-  </ul>
-</section>
+    <section id="projects">
+        <div class="container">
+            <h2>Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <h3>Low-Light Enhancement</h3>
+                    <p>Developed a state-of-the-art low-light enhancement system for low/mid-tier devices, improving image quality in challenging lighting conditions.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="project-card">
+                    <h3>AI High Resolution</h3>
+                    <p>Created an AI-based demosaicing solution for the Samsung S23, significantly improving image resolution and clarity.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <!-- Add more project cards as needed -->
+            </div>
+        </div>
+    </section>
 
-<section id="projects">
-  <h2>Projects</h2>
-  <ul>
-    <li><strong>Low-Light Enhancement</strong>: Developed low-light enhancement for low/mid-tier devices. <a href="#">More Details</a></li>
-    <li><strong>AI High Resolution</strong>: Developed AI-based demosaicing solution for Samsung S23. <a href="#">More Details</a></li>
-  </ul>
-</section>
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Me</h2>
+            <form>
+                <input type="text" placeholder="Name" required>
+                <input type="email" placeholder="Email" required>
+                <textarea placeholder="Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
 
-<footer>
-  <p>&copy; 2024 Akshit Agarwal. All Rights Reserved.</p>
-</footer>
+    <footer>
+        <p>&copy; 2024 Akshit Agarwal. All Rights Reserved.</p>
+    </footer>
 
-<!-- JavaScript for Section Navigation -->
-<script>
-  function showSection(sectionId) {
-    // Get all sections
-    const sections = document.querySelectorAll('section');
-    
-    // Hide all sections
-    sections.forEach(section => {
-      section.classList.remove('active');
-    });
-    
-    // Show the clicked section
-    document.getElementById(sectionId).classList.add('active');
-  }
-</script>
-
+    <script>
+        function smoothScroll(target) {
+            document.querySelector(target).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+    </script>
 </body>
 </html>
